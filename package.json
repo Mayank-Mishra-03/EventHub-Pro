@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "motion": "^12.26.1",
     "next": "16.1.1",
+    "next-view-transitions": "^0.3.5",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
