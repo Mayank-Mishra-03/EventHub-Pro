@@ -1,8 +1,14 @@
 "use client";
 import { Link } from "next-view-transitions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "./Button";
-import { motion, stagger, useAnimate } from "motion/react";
+import {
+  motion,
+  stagger,
+  useAnimate,
+  useMotionValueEvent,
+  useScroll,
+} from "motion/react";
 
 const navLinks = [
   {
@@ -34,7 +40,17 @@ const logo = (
 );
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
   const [scope, animate] = useAnimate();
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 20) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  });
 
   useEffect(() => {
     animate(
@@ -57,21 +73,38 @@ const Navbar = () => {
         duration: 0.8,
       }
     );
+    animate(
+      ".logo-icon",
+      {
+        opacity: [0, 1],
+      },
+      {
+        duration: 0.8,
+      }
+    );
   }, []);
   return (
-    <nav className="bg-surface md:min-w-screen sm:w-0 fixed top-0 left-0 py-3 shadow-sm">
+    <motion.nav
+      animate={{
+        opacity: scrolled ? 0.95 : 1,
+      }}
+      transition={{
+        duration: 0.3,
+        ease: "linear",
+      }}
+      ref={scope}
+      className="bg-surface md:w-screen fixed top-0 inset-x-0 py-3 shadow-sm mx-auto"
+    >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           href="/"
-          className="flex items-center justify-center gap-0.5"
+          className="logo-icon flex items-center justify-center gap-0.5"
         >
           {logo}
           <span className="text-xl font-bold text-primary">EventHub Pro</span>
         </Link>
-        <ul
-          ref={scope}
-          className="flex items-center text-text-secondary gap-8"
-        >
+        <ul className="flex items-center text-text-secondary gap-8">
           {navLinks.map((link) => (
             <li
               key={link.title}
@@ -93,7 +126,7 @@ const Navbar = () => {
           </Button>
         </ul>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
