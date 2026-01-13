@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
 import { Calendar, MapPin, Clock } from "lucide-react";
-import Button from "./Button";
-import IconAndInfo from "./IconAndInfo";
-import CalculateTimeDifference from "./CountdownTimer";
+import Button from "./smallerComponents/Button";
+import IconAndInfo from "./smallerComponents/IconAndInfo";
+import CalculateTimeDifference from "./smallerComponents/CountdownTimer";
 import Image from "next/image";
 
 const heroHeading = "Professional Development Conference 2026";
