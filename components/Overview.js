@@ -1,11 +1,10 @@
 "use client";
-import { useState } from "react";
 import Container from "./helperComponents/Container";
-import { motion } from "motion/react";
 import OverviewCard from "./helperComponents/OverviewCard";
 import { ClockArrowDown, LayoutGrid, Users2 } from "lucide-react";
+import SectionHeadingAndSubHeading from "./helperComponents/SectionHeadingAndSubHeading";
 
-const heading = "Why EventHub Pro 2025?";
+const heading = "Why EventHub Pro 2026?";
 const subHeading =
   "Transform your career trajectory with exclusive insights, strategic networking, and actionable knowledge from industry pioneers.";
 const OverviewData = [
@@ -33,44 +32,13 @@ const Overview = () => {
   return (
     <section
       id="overview"
-      className="bg-background min-h-screen"
+      className="bg-background min-h-screen border-b border-neutral-200"
     >
       <Container className="py-20">
-        <div className="flex flex-col items-center justify-center max-w-3xl mx-auto">
-          <div className="flex">
-            {heading.split(" ").map((word, index) => (
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                key={word + index}
-                className="text-3xl font-bold text-primary"
-              >
-                {word}&nbsp;
-              </motion.h1>
-            ))}
-          </div>
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "100%" }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="h-0.5 bg-primary w-full mt-2"
-          ></motion.div>
-
-          <div className="flex flex-wrap mt-3 items-center justify-center">
-            {subHeading.split(" ").map((word, index) => (
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-                key={word + index}
-                className="text-xl text-text-secondary"
-              >
-                {word}&nbsp;
-              </motion.h1>
-            ))}
-          </div>
-        </div>
+        <SectionHeadingAndSubHeading
+          heading={heading}
+          subHeading={subHeading}
+        />
 
         <div className="grid grid-cols-3 gap-10 mt-10">
           {OverviewData.map((item, index) => (
