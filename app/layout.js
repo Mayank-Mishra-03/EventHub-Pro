@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <ViewTransitions>
       <html lang="en">
-        <body className={`${inter.className} antialiased`}>
+        <body className={`${inter.className} antialiased cursor-default`}>
           <Navbar />
           {children}
         </body>
