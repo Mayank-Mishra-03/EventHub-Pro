@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "next-view-transitions";
 import { useEffect, useState } from "react";
-import Button from "./smallerComponents/Button";
+import Button from "./helperComponents/Button";
 import {
   motion,
   stagger,
