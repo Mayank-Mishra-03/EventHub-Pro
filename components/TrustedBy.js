@@ -14,7 +14,7 @@ const companiesLogos = [
 
 const TrustedBy = () => {
   return (
-    <div className="bg-background flex flex-col items-center justify-center gap-5 py-10">
+    <div className="bg-surface flex flex-col items-center justify-center gap-5 py-10 border-b border-neutral-200">
       <h2 className="text-lg text-neutral-400 font-medium">
         Trusted By Industry Leaders
       </h2>

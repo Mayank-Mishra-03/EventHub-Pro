@@ -6,6 +6,7 @@ import Button from "./helperComponents/Button";
 import IconAndInfo from "./helperComponents/IconAndInfo";
 import CalculateTimeDifference from "./helperComponents/CountdownTimer";
 import Image from "next/image";
+import Container from "./helperComponents/Container";
 
 const heroHeading = "Professional Development Conference 2026";
 const heroSubheading = "Advance Your Career in One Day: Connect, Learn, Lead";
@@ -80,7 +81,7 @@ const HeroSection = () => {
       },
       {
         type: "spring",
-        stiffness: 150,
+        stiffness: 200,
         damping: 10,
         duration: 0.8,
       }
@@ -107,11 +108,11 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <main className="pt-20 bg-linear-to-br from-primary to-secondary min-h-screen">
-      <div
-        ref={scope}
-        className="max-w-6xl mx-auto grid grid-cols-2 py-18 gap-5"
-      >
+    <main
+      ref={scope}
+      className="pt-20 bg-linear-to-br from-primary to-secondary min-h-screen"
+    >
+      <Container className="max-w-6xl mx-auto grid grid-cols-2 py-18 gap-5">
         <section className="text-white">
           <div className="flex flex-wrap">
             {heroHeading.split(" ").map((word, index) => (
@@ -198,7 +199,7 @@ const HeroSection = () => {
             />
           </div>
         </section>
-      </div>
+      </Container>
     </main>
   );
 };
