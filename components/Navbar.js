@@ -119,8 +119,8 @@ const Navbar = () => {
             </li>
           ))}
           <Button
-            className="px-4 py-2"
-            href="/tickets"
+            className="px-4 py-2 font-bold"
+            href="/register"
           >
             Book Now
           </Button>
