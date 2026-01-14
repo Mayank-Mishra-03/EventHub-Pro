@@ -149,7 +149,7 @@ const marqueeVariants = [
 const SuccessStoriesSection = () => {
   return (
     <section className="bg-surface border-b border-neutral-200">
-      <Container className="mask-x-from-90% to-100% relative">
+      <Container className="mask-x-from-85% to-100% relative">
         <div className="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none">
           <motion.div
             initial={{ width: 0 }}
@@ -163,7 +163,7 @@ const SuccessStoriesSection = () => {
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: "100%" }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.6 }}
             className="h-0.5 bg-primary w-full "
           ></motion.div>
         </div>

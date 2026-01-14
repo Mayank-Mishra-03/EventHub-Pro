@@ -84,7 +84,7 @@ const HeroSection = () => {
         stiffness: 200,
         damping: 10,
         duration: 0.8,
-      }
+      },
     );
     animate(
       ".hero-image-2",

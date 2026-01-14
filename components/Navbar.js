@@ -14,7 +14,7 @@ import Container from "./helperComponents/Container";
 const navLinks = [
   {
     title: "Overview",
-    href: "#overview",
+    href: "/#overview",
   },
   {
     title: "Schedule",
