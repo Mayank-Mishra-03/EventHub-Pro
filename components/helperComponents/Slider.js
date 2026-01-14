@@ -1,14 +1,32 @@
 "use client";
 import { useState } from "react";
 import { motion } from "motion/react";
+import MultipleScheduleCards from "./ScheduleCard";
 
-const items = ["All tracks", "Leadership", "Innovation", "Networking"];
+const tracks = ["All tracks", "Leadership", "Innovation", "Networking"];
 
 const Slider = () => {
   const [clicked, setClicked] = useState(0);
+
+  const currentTrack = (idx) => {
+    switch (idx) {
+      case 0:
+        return <MultipleScheduleCards />;
+      case 1:
+        return;
+      case 2:
+        return <MultipleScheduleCards />;
+      case 3:
+        return;
+
+      default:
+        break;
+    }
+  };
   return (
+    <>
     <div className="mt-15 max-w-2xl mx-auto bg-background shadow-md border border-border flex items-center justify-between py-2.5 px-10 rounded-xl">
-      {items.map((item, index) => (
+      {tracks.map((track, index) => (
         <h3
           onClick={() => setClicked(index)}
           className={`font-medium cursor-pointer transition-all duration-200 relative px-6 py-2 ${
@@ -18,7 +36,7 @@ const Slider = () => {
           }`}
           key={index}
         >
-          <span className="relative z-10">{item}</span>
+          <span className="relative z-10">{track}</span>
           {clicked === index && (
             <motion.div
               layoutId="clicked"
@@ -28,6 +46,8 @@ const Slider = () => {
         </h3>
       ))}
     </div>
+    <div className="mt-10">{currentTrack(clicked)}</div>
+    </>
   );
 };
 

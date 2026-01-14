@@ -110,9 +110,9 @@ const HeroSection = () => {
   return (
     <main
       ref={scope}
-      className="pt-20 bg-linear-to-br from-primary to-secondary min-h-screen"
+      className="pt-18 bg-linear-to-br from-primary to-secondary"
     >
-      <Container className="max-w-6xl mx-auto grid grid-cols-2 py-18 gap-5">
+      <Container className="max-w-6xl mx-auto grid grid-cols-2 gap-5">
         <section className="text-white">
           <div className="flex flex-wrap">
             {heroHeading.split(" ").map((word, index) => (

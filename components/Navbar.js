@@ -96,7 +96,7 @@ const Navbar = () => {
       ref={scope}
       className="bg-surface md:w-screen fixed top-0 inset-x-0 py-3 shadow-sm mx-auto z-50"
     >
-      <Container className="flex items-center justify-between">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           href="/"
@@ -126,7 +126,7 @@ const Navbar = () => {
             Book Now
           </Button>
         </ul>
-      </Container>
+      </div>
     </motion.nav>
   );
 };

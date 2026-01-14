@@ -4,9 +4,6 @@ import OverviewCard from "./helperComponents/OverviewCard";
 import { ClockArrowDown, LayoutGrid, Users2 } from "lucide-react";
 import SectionHeadingAndSubHeading from "./helperComponents/SectionHeadingAndSubHeading";
 
-const heading = "Why EventHub Pro 2026?";
-const subHeading =
-  "Transform your career trajectory with exclusive insights, strategic networking, and actionable knowledge from industry pioneers.";
 const OverviewData = [
   {
     Icon: ClockArrowDown,
@@ -32,15 +29,15 @@ const Overview = () => {
   return (
     <section
       id="overview"
-      className="bg-background min-h-screen border-b border-neutral-200"
+      className="bg-background border-b border-neutral-200"
     >
-      <Container className="py-20">
+      <Container>
         <SectionHeadingAndSubHeading
-          heading={heading}
-          subHeading={subHeading}
+          heading="Why EventHub Pro 2026?"
+          subHeading="Transform your career trajectory with exclusive insights, strategic networking, and actionable knowledge from industry pioneers."
         />
 
-        <div className="grid grid-cols-3 gap-10 mt-10">
+        <div className="grid grid-cols-3 gap-10 mt-16">
           {OverviewData.map((item, index) => (
             <OverviewCard
               key={index}

@@ -1,24 +1,24 @@
 import React from "react";
 import Container from "./helperComponents/Container";
 import SectionHeadingAndSubHeading from "./helperComponents/SectionHeadingAndSubHeading";
-import Slider from "./helperComponents/Slider";
+import SpeakerCard from "./helperComponents/SpeakerCard";
 
-const Schedule = () => {
+const Speakers = () => {
   return (
     <section
-      id="schedule"
-      className="bg-surface border-b border-neutral-200"
+      id="speakers"
+      className="bg-background"
     >
       <Container>
         <SectionHeadingAndSubHeading
-          heading="Event Schedule"
-          subHeading="Carefully curated sessions designed for maximum impact"
+          heading="World-Class Speakers"
+          subHeading="Learn from industry pioneers and thought leaders"
         />
+<SpeakerCard/>
 
-        <Slider />
       </Container>
     </section>
   );
 };
 
-export default Schedule;
+export default Speakers;
