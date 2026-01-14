@@ -20,7 +20,7 @@ const SpeakerCard = ({ speaker }) => {
           className="h-50 w-100 object-cover rounded-t-lg"
         />
       </div>
-      <h2 className="font-bold text-primary tracking-wide">{speaker.name}</h2>
+      <h2 className="font-bold text-lg text-primary tracking-wide">{speaker.name}</h2>
       <h3 className="text-md text-accent tracking-tight font-semibold">
         {speaker.role}
       </h3>

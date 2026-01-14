@@ -16,7 +16,7 @@ const MiniSpeakerCard = ({ speaker }) => {
       </motion.div>
       <div>
         <h2 className="font-bold text-primary tracking-wide">{speaker.name}</h2>
-        <p className="text-sm text-neutral-500 tracking-tight">{speaker.role}</p>
+        <p className="text-sm font-medium text-neutral-500 tracking-tight">{speaker.role}</p>
       </div>
     </div>
   );

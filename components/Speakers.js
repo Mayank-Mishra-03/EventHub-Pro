@@ -7,7 +7,7 @@ const Speakers = () => {
   return (
     <section
       id="speakers"
-      className="bg-background"
+      className="bg-background border-b border-neutral-200"
     >
       <Container>
         <SectionHeadingAndSubHeading

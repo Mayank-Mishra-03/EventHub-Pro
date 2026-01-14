@@ -2,7 +2,8 @@ import HeroSection from "@/components/HeroSection";
 import Overview from "@/components/Overview";
 import Schedule from "@/components/Schedule";
 import Speakers from "@/components/Speakers";
-import TrustedBy from "@/components/TrustedBy";
+import SuccessStoriesSection from "@/components/SuccessStoriesSection";
+import TrustedBy from "@/components/TrustedBySection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Overview />
       <Schedule />
       <Speakers/>
+      <SuccessStoriesSection/>
     </div>
   );
 }
