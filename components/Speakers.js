@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./helperComponents/Container";
 import SectionHeadingAndSubHeading from "./helperComponents/SectionHeadingAndSubHeading";
-import SpeakerCard from "./helperComponents/SpeakerCard";
+import SpeakerCarousel from "./helperComponents/SpeakerCarousel";
 
 const Speakers = () => {
   return (
@@ -14,8 +14,7 @@ const Speakers = () => {
           heading="World-Class Speakers"
           subHeading="Learn from industry pioneers and thought leaders"
         />
-<SpeakerCard/>
-
+        <SpeakerCarousel />
       </Container>
     </section>
   );
