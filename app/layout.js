@@ -17,7 +17,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ViewTransitions>
-      <html lang="en">
+      <html
+        lang="en"
+        suppressHydrationWarning
+      >
         <body className={`${inter.className} antialiased cursor-default`}>
           <Navbar />
           {children}

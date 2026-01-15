@@ -5,6 +5,7 @@ import Speakers from "@/components/Speakers";
 import SuccessStoriesSection from "@/components/SuccessStoriesSection";
 import Tickets from "@/components/Tickets";
 import TrustedBy from "@/components/TrustedBySection";
+import VenueInfoSection from "@/components/VenueInfoSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Speakers/>
       <SuccessStoriesSection/>
       <Tickets/>
+      <VenueInfoSection/>
     </div>
   );
 }

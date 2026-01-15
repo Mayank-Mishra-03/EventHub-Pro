@@ -64,7 +64,7 @@ const speakerInfo = [
 const SpeakerCarousel = () => {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
   return (
-    <div className="max-w-6xl mx-auto mt-12 grid grid-cols-3 gap-20">
+    <div className="max-w-5xl mx-auto mt-12 grid grid-cols-3 gap-20">
       {speakerInfo.map((speaker, index) => (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
