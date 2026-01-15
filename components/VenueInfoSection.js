@@ -141,24 +141,22 @@ const VenueInfoSection = () => {
           </div>
 
           <div className="shadow-lg p-4 flex flex-col items-center gap-4">
-            <div className="relative">
-              <motion.div
-                initial={{ scale: 1.1, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.6,
-                }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2940&auto=format&fit=crop"
-                  alt="Conference Image"
-                  width={500}
-                  height={500}
-                  className="rounded-lg shadow-lg"
-                />
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ scale: 1.1, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.6,
+              }}
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2940&auto=format&fit=crop"
+                alt="Conference Image"
+                width={500}
+                height={500}
+                className="rounded-lg shadow-lg"
+              />
+            </motion.div>
             <Button
               href="/directions"
               className="font-semibold px-40 py-3 w-full"

@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import Overview from "@/components/Overview";
+import QuestionSection from "@/components/QuestionSection";
 import Schedule from "@/components/Schedule";
 import Speakers from "@/components/Speakers";
 import SuccessStoriesSection from "@/components/SuccessStoriesSection";
@@ -14,10 +15,11 @@ export default function Home() {
       <TrustedBy />
       <Overview />
       <Schedule />
-      <Speakers/>
-      <SuccessStoriesSection/>
-      <Tickets/>
-      <VenueInfoSection/>
+      <Speakers />
+      <SuccessStoriesSection />
+      <Tickets />
+      <VenueInfoSection />
+      <QuestionSection />
     </div>
   );
 }
