@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Overview from "@/components/Overview";
 import QuestionSection from "@/components/QuestionSection";
@@ -20,6 +21,7 @@ export default function Home() {
       <Tickets />
       <VenueInfoSection />
       <QuestionSection />
+      <Footer/>
     </div>
   );
 }

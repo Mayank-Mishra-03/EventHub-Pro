@@ -26,7 +26,28 @@ const QuestionAndAnswer = [
     answer:
       "Our networking app matches you with relevant professionals based on your interests and goals. We also have structured networking breaks, roundtable discussions, and industry-specific meetups throughout the day.",
   },
+  {
+    question: "Who should attend this event?",
+    answer:
+      "This event is ideal for professionals, founders, managers, and students who want to learn from industry leaders, expand their network, and stay ahead of emerging trends.",
+  },
+  {
+    question: "Is there a virtual attendance option?",
+    answer:
+      "Yes, we offer a virtual pass that includes live-streamed keynotes, select panels, and access to recorded sessions after the event.",
+  },
+  {
+    question: "Do I need to install any apps before attending?",
+    answer:
+      "Yes, we recommend downloading our event networking app before arrival to manage your schedule, connect with attendees, and receive real-time updates.",
+  },
+  {
+    question: "Will I receive a certificate of attendance?",
+    answer:
+      "Yes, all attendees will receive a digital certificate of attendance after the event, which can be shared on LinkedIn or included in your professional portfolio.",
+  }
 ];
+
 
 const IndividualQuestionCard = ({ query }) => {
   const [isOpened, setisOpened] = useState(false);
