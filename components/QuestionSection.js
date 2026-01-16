@@ -45,9 +45,8 @@ const QuestionAndAnswer = [
     question: "Will I receive a certificate of attendance?",
     answer:
       "Yes, all attendees will receive a digital certificate of attendance after the event, which can be shared on LinkedIn or included in your professional portfolio.",
-  }
+  },
 ];
-
 
 const IndividualQuestionCard = ({ query }) => {
   const [isOpened, setisOpened] = useState(false);
@@ -122,6 +121,7 @@ const QuestionSection = () => {
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
+              viewport={{ once: true }}
             >
               <IndividualQuestionCard query={query} />
             </motion.div>

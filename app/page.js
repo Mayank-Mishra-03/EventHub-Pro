@@ -6,6 +6,7 @@ import Schedule from "@/components/Schedule";
 import Speakers from "@/components/Speakers";
 import SuccessStoriesSection from "@/components/SuccessStoriesSection";
 import Tickets from "@/components/Tickets";
+import Transform from "@/components/Transform";
 import TrustedBy from "@/components/TrustedBySection";
 import VenueInfoSection from "@/components/VenueInfoSection";
 
@@ -21,6 +22,7 @@ export default function Home() {
       <Tickets />
       <VenueInfoSection />
       <QuestionSection />
+      <Transform/>
       <Footer/>
     </div>
   );
