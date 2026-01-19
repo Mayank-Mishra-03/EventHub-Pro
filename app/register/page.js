@@ -11,6 +11,11 @@ import {
   Calendar,
   CreditCard,
   ChevronDown,
+  Utensils,
+  Megaphone,
+  TicketPercent,
+  Lock,
+  ShieldCheck,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -18,31 +23,14 @@ const tierCardDetails = [
   {
     title: "Standard",
     price: 299,
-    benefits: [
-      "Full conference access",
-      "Digital resource library",
-      "Networking app access",
-    ],
   },
   {
     title: "Premium",
     price: 449,
-    benefits: [
-      "Everything in Standard",
-      "VIP networking lunch",
-      "Priority seating",
-      "Exclusive workshop access",
-    ],
   },
   {
     title: "VIP",
     price: 699,
-    benefits: [
-      "Everything in Premium",
-      "Speaker meet & greet",
-      "1-on-1 coaching session",
-      "Exclusive dinner invitation",
-    ],
   },
 ];
 
@@ -54,24 +42,57 @@ const RegisterPage = () => {
     address: "",
     gender: "",
     age: "",
+    dietaryPreference: "",
+    referralSource: "",
+    acceptedTerms: false,
   });
   const [selectedTier, setSelectedTier] = useState("Standard");
+  const [promoCode, setPromoCode] = useState("");
+  const [discount, setDiscount] = useState(0);
+  const [promoMessage, setPromoMessage] = useState(null);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleApplyPromo = () => {
+    if (promoCode.toUpperCase() === "EVENT2025") {
+      setDiscount(0.1); // 10% discount
+      setPromoMessage({
+        type: "success",
+        text: "Promo code applied! (10% OFF)",
+      });
+    } else {
+      setDiscount(0);
+      setPromoMessage({ type: "error", text: "Invalid promo code" });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted", { ...formData, selectedTier });
+    if (!formData.acceptedTerms) {
+      alert("Please accept the Terms and Conditions to proceed.");
+      return;
+    }
+    const finalPrice = calculateTotal();
+    console.log("Form Submitted", { ...formData, selectedTier, finalPrice });
     alert(
-      `Registration Details:\nName: ${formData.name}\nTier: ${selectedTier}\nAmount: $${tierCardDetails.find((t) => t.title === selectedTier)?.price}\n\nProceeding to payment gateway...`,
+      `Registration Details:\nName: ${formData.name}\nTier: ${selectedTier}\nFinal Amount: $${finalPrice}\nPromo Applied: ${discount > 0 ? "Yes" : "No"}\n\nProceeding to payment gateway...`,
     );
   };
 
-  const currentPrice = tierCardDetails.find(
-    (t) => t.title === selectedTier,
-  )?.price;
+  const calculateTotal = () => {
+    const basePrice =
+      tierCardDetails.find((t) => t.title === selectedTier)?.price || 0;
+    return Math.round(basePrice * (1 - discount));
+  };
+
+  const currentBasePrice =
+    tierCardDetails.find((t) => t.title === selectedTier)?.price || 0;
 
   return (
     <div className="bg-background min-h-screen pt-16 pb-20">
@@ -122,7 +143,7 @@ const RegisterPage = () => {
                     placeholder: "25",
                     icon: Calendar,
                   },
-                ].map((field, idx) => (
+                ].map((field) => (
                   <div
                     key={field.name}
                     className="space-y-2"
@@ -166,6 +187,7 @@ const RegisterPage = () => {
                     />
                   </div>
                 </div>
+
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-text-secondary ml-1">
                     Gender
@@ -193,9 +215,79 @@ const RegisterPage = () => {
                     />
                   </div>
                 </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-text-secondary ml-1">
+                    Dietary Preference
+                  </label>
+                  <div className="relative group">
+                    <Utensils
+                      size={18}
+                      className="absolute left-3 top-3.5 text-neutral-400 group-focus-within:text-accent transition-colors duration-300"
+                    />
+                    <select
+                      name="dietaryPreference"
+                      className="w-full pl-10 pr-10 py-3 rounded-lg border border-neutral-200 focus:outline-hidden focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-300 bg-surface hover:bg-white appearance-none"
+                      value={formData.dietaryPreference}
+                      onChange={handleChange}
+                    >
+                      <option
+                        value=""
+                        disabled
+                      >
+                        Select Preference
+                      </option>
+                      <option value="none">None</option>
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="vegan">Vegan</option>
+                      <option value="gluten-free">Gluten Free</option>
+                      <option value="halal">Halal</option>
+                      <option value="kosher">Kosher</option>
+                    </select>
+                    <ChevronDown
+                      size={18}
+                      className="absolute right-3 top-3.5 text-neutral-400 pointer-events-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-sm font-semibold text-text-secondary ml-1">
+                    How did you hear about us?
+                  </label>
+                  <div className="relative group">
+                    <Megaphone
+                      size={18}
+                      className="absolute left-3 top-3.5 text-neutral-400 group-focus-within:text-accent transition-colors duration-300"
+                    />
+                    <select
+                      name="referralSource"
+                      className="w-full pl-10 pr-10 py-3 rounded-lg border border-neutral-200 focus:outline-hidden focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-300 bg-surface hover:bg-white appearance-none"
+                      value={formData.referralSource}
+                      onChange={handleChange}
+                    >
+                      <option
+                        value=""
+                        disabled
+                      >
+                        Select Source
+                      </option>
+                      <option value="social-media">Social Media</option>
+                      <option value="friend">Friend/Colleague</option>
+                      <option value="email-newsletter">Email Newsletter</option>
+                      <option value="search-engine">Search Engine</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <ChevronDown
+                      size={18}
+                      className="absolute right-3 top-3.5 text-neutral-400 pointer-events-none"
+                    />
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
+
           <div className="lg:col-span-1 space-y-6">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -243,63 +335,130 @@ const RegisterPage = () => {
                         ${tier.price}
                       </span>
                     </div>
-                    <ul className="space-y-1.5">
-                      {tier.benefits.slice(0, 2).map((benefit, idx) => (
-                        <li
-                          key={idx}
-                          className="text-xs text-text-secondary flex items-start gap-1.5"
-                        >
-                          <Check
-                            size={14}
-                            className="text-success mt-0.5 shrink-0"
-                          />{" "}
-                          {benefit}
-                        </li>
-                      ))}
-                      {tier.benefits.length > 2 && (
-                        <li className="text-xs text-text-secondary/70 italic pl-5">
-                          + {tier.benefits.length - 2} more benefits
-                        </li>
-                      )}
-                    </ul>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-neutral-100">
-                <div className="flex justify-between items-center mb-6">
+              <div className="mt-6 pt-6 border-t border-neutral-100">
+                <label className="text-sm font-semibold text-text-secondary ml-1 mb-2 block">
+                  Promo Code
+                </label>
+                <div className="flex gap-2">
+                  <div className="relative grow">
+                    <TicketPercent
+                      size={18}
+                      className="absolute left-3 top-3.5 text-neutral-400"
+                    />
+                    <input
+                      type="text"
+                      placeholder="EVENT2025"
+                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-neutral-200 focus:outline-hidden focus:ring-2 focus:ring-accent/20 focus:border-accent text-sm uppercase"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value)}
+                    />
+                  </div>
+                  <button
+                    onClick={handleApplyPromo}
+                    className="bg-neutral-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-neutral-800 transition-colors"
+                  >
+                    Apply
+                  </button>
+                </div>
+                {promoMessage && (
+                  <p
+                    className={`text-xs mt-2 ml-1 ${promoMessage.type === "success" ? "text-green-600" : "text-red-500"}`}
+                  >
+                    {promoMessage.text}
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-neutral-100">
+                <div className="flex justify-between items-center mb-2">
                   <span className="text-text-secondary font-medium">
-                    Total Amount
+                    Subtotal
                   </span>
+                  <span className="text-lg font-bold text-primary">
+                    ${currentBasePrice}
+                  </span>
+                </div>
+                {discount > 0 && (
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-success font-medium">
+                      Discount (10%)
+                    </span>
+                    <span className="text-lg font-bold text-success">
+                      -${Math.round(currentBasePrice * discount)}
+                    </span>
+                  </div>
+                )}
+                <div className="flex justify-between items-center mb-6 pt-4 border-t border-dashed border-neutral-200">
+                  <span className="text-lg font-bold text-primary">Total</span>
                   <motion.span
-                    key={currentPrice}
+                    key={calculateTotal()}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-3xl font-extrabold text-primary"
+                    className="text-3xl font-extrabold text-accent"
                   >
-                    ${currentPrice || 0}
+                    ${calculateTotal()}
                   </motion.span>
                 </div>
+
+                <div className="mb-6">
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      name="acceptedTerms"
+                      checked={formData.acceptedTerms}
+                      onChange={handleChange}
+                      className="mt-1 w-4 h-4 text-accent border-neutral-300 rounded-sm focus:ring-accent"
+                    />
+                    <span className="text-xs text-text-secondary leading-tight group-hover:text-primary transition-colors">
+                      I agree to the{" "}
+                      <a
+                        href="#"
+                        className="underline text-accent"
+                      >
+                        Terms & Conditions
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="#"
+                        className="underline text-accent"
+                      >
+                        Privacy Policy
+                      </a>
+                      .
+                    </span>
+                  </label>
+                </div>
+
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleSubmit}
-                  className="w-full bg-accent text-white font-bold py-4 rounded-xl shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
+                  disabled={!formData.acceptedTerms}
+                  className={`w-full font-bold py-4 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden ${formData.acceptedTerms ? "bg-accent text-white shadow-accent/20 hover:shadow-xl hover:shadow-accent/30" : "bg-neutral-200 text-neutral-400 cursor-not-allowed shadow-none"}`}
                 >
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"></div>
+                  <div
+                    className={`absolute inset-0 bg-white/20 translate-y-full transition-transform duration-300 pointer-events-none ${formData.acceptedTerms ? "group-hover:translate-y-0" : ""}`}
+                  ></div>
                   <CreditCard
                     size={20}
-                    className="group-hover:rotate-12 transition-transform duration-300"
+                    className={`${formData.acceptedTerms ? "group-hover:rotate-12" : ""} transition-transform duration-300`}
                   />
                   <span className="relative z-10">Proceed to Payment</span>
                 </motion.button>
-                <p className="text-xs text-center text-text-secondary mt-4 flex items-center justify-center gap-1">
-                  <Check
-                    size={12}
-                    className="text-success"
-                  />{" "}
-                  Secure SSL Encryption
-                </p>
+
+                <div className="mt-6 flex flex-col items-center gap-3">
+                  <div className="flex items-center gap-2 text-neutral-400">
+                    <ShieldCheck size={18} />
+                    <Lock size={18} />
+                    <span className="text-xs font-semibold">
+                      256-bit SSL Secured
+                    </span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
