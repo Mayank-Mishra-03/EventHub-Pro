@@ -18,6 +18,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { Link } from "next-view-transitions";
 
 const tierCardDetails = [
   {
@@ -415,19 +416,19 @@ const RegisterPage = () => {
                     />
                     <span className="text-xs text-text-secondary leading-tight group-hover:text-primary transition-colors">
                       I agree to the{" "}
-                      <a
-                        href="#"
+                      <Link
+                        href="/terms"
                         className="underline text-accent"
                       >
                         Terms & Conditions
-                      </a>{" "}
+                      </Link>{" "}
                       and{" "}
-                      <a
-                        href="#"
+                      <Link
+                        href="/privacy"
                         className="underline text-accent"
                       >
                         Privacy Policy
-                      </a>
+                      </Link>
                       .
                     </span>
                   </label>
