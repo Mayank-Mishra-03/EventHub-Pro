@@ -102,7 +102,7 @@ const DirectionsPage = () => {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale group-hover:grayscale-0 transition-all duration-300"
+              className="grayscale-50 group-hover:grayscale-0 transition-all duration-300"
             ></iframe>
 
             <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold shadow-xs pointer-events-none text-neutral-600">
