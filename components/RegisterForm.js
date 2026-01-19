@@ -285,6 +285,54 @@ const RegisterForm = () => {
             </div>
           </div>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="bg-linear-to-br from-neutral-900 to-neutral-800 p-8 rounded-xl shadow-lg text-white overflow-hidden relative"
+        >
+          <div className="absolute top-0 right-0 p-32 bg-accent/0 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2">
+              <h4 className="text-xl font-bold flex items-center gap-2">
+                <span className="text-accent">★</span> Why Join EventHub Pro?
+              </h4>
+              <p className="text-neutral-400 text-sm max-w-md">
+                Experience the ultimate tech gathering with exclusive perks
+                tailored for professionals like you.
+              </p>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-accent">
+                  <Megaphone size={20} />
+                </div>
+                <span className="text-xs font-medium text-neutral-300">
+                  Top Speakers
+                </span>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-accent">
+                  <TicketPercent size={20} />
+                </div>
+                <span className="text-xs font-medium text-neutral-300">
+                  Networking
+                </span>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-accent">
+                  <ShieldCheck size={20} />
+                </div>
+                <span className="text-xs font-medium text-neutral-300">
+                  Certified
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       <div className="lg:col-span-1 space-y-6">
@@ -350,7 +398,7 @@ const RegisterForm = () => {
                 />
                 <input
                   type="text"
-                  placeholder="EVENT2025"
+                  placeholder="EVENT2026"
                   className="w-full pl-10 pr-4 py-3 rounded-lg border border-neutral-200 focus:outline-hidden focus:ring-2 focus:ring-accent/20 focus:border-accent text-sm uppercase"
                   value={promoCode}
                   onChange={(e) => setPromoCode(e.target.value)}

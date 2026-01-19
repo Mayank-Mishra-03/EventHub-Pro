@@ -156,16 +156,14 @@ const VenueInfoSection = () => {
             </div>
             <Button
               href="/directions"
-              className="flex items-center w-full py-2 justify-evenly"
+              className="flex items-center w-full py-2 justify-center gap-3"
             >
               <Map
-                size={20}
-                strokeWidth={2}
+                size={22}
               />
-              <span className="text-lg font-semibold">Get Directions</span>
+              <span className="text-xl font-semibold">Get Directions</span>
               <ExternalLink
-                size={20}
-                strokeWidth={2}
+                size={18}
               />
             </Button>
           </motion.div>

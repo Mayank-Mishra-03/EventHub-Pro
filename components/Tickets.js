@@ -49,9 +49,12 @@ const Tickets = () => {
   const [timeLeft, setTimeLeft] = useState(CalculateTimeDifference());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(CalculateTimeDifference());
-    }, 24 * 60 * 60);
+    const timer = setInterval(
+      () => {
+        setTimeLeft(CalculateTimeDifference());
+      },
+      24 * 60 * 60,
+    );
   }, []);
 
   return (

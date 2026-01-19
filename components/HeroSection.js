@@ -26,7 +26,7 @@ const HeroSection = () => {
         delay: stagger(0.1),
         ease: "easeInOut",
         duration: 0.6,
-      }
+      },
     );
 
     animate(
@@ -39,7 +39,7 @@ const HeroSection = () => {
         delay: stagger(0.1),
         ease: "easeInOut",
         duration: 0.5,
-      }
+      },
     );
 
     animate(
@@ -53,7 +53,7 @@ const HeroSection = () => {
         stiffness: 150,
         damping: 10,
         duration: 0.8,
-      }
+      },
     );
 
     animate(
@@ -62,7 +62,7 @@ const HeroSection = () => {
         scale: [0.8, 1],
         opacity: [0, 1],
       },
-      { duration: 0.7, ease: "easeOut" }
+      { duration: 0.7, ease: "easeOut" },
     );
     animate(
       ".bottom-content",
@@ -72,7 +72,7 @@ const HeroSection = () => {
       {
         delay: 0.6,
         ease: "easeInOut",
-      }
+      },
     );
     animate(
       ".hero-image-1",
@@ -96,7 +96,7 @@ const HeroSection = () => {
         stiffness: 150,
         damping: 10,
         duration: 0.8,
-      }
+      },
     );
   };
 
@@ -110,31 +110,31 @@ const HeroSection = () => {
   return (
     <main
       ref={scope}
-      className="pt-18 bg-linear-to-br from-primary to-secondary"
+      className="pt-24 pb-12 lg:pt-18 lg:pb-0 bg-linear-to-br from-primary to-secondary overflow-hidden"
     >
-      <Container className="max-w-6xl mx-auto grid grid-cols-2 gap-5">
+      <Container className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-5 px-4 lg:px-0">
         <section className="text-white">
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-center lg:justify-start text-center lg:text-left">
             {heroHeading.split(" ").map((word, index) => (
               <span
                 key={word + index}
-                className="hero-heading text-5xl font-bold md:text-6xl inline-block"
+                className="hero-heading text-4xl md:text-5xl lg:text-6xl font-bold inline-block"
               >
                 {word}&nbsp;
               </span>
             ))}
           </div>
-          <div className="mt-4">
+          <div className="mt-4 text-center lg:text-left">
             {heroSubheading.split(" ").map((word, index) => (
               <span
                 key={word + index}
-                className="hero-subheading text-neutral-300 font-semibold text-xl inline-block tracking-tight"
+                className="hero-subheading text-neutral-300 font-semibold text-lg md:text-xl inline-block tracking-tight"
               >
                 {word}&nbsp;
               </span>
             ))}
           </div>
-          <div className="mt-6 flex items-center justify-between text-neutral-200">
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-between text-neutral-200 gap-4 sm:gap-0">
             <IconAndInfo
               Icon={Calendar}
               className="icon-and-info text-lg font-medium"
@@ -148,7 +148,7 @@ const HeroSection = () => {
               Palladium Conference Center, Pune
             </IconAndInfo>
           </div>
-          <div>
+          <div className="text-center lg:text-left">
             <Button
               href="/register"
               className="early-sale-button mt-8 px-12 py-3 text-xl font-medium ring-1"
@@ -156,7 +156,7 @@ const HeroSection = () => {
               Secure Early Bird Ticket - Save 40%
             </Button>
           </div>
-          <div className="flex items-start mt-4">
+          <div className="flex justify-center lg:justify-start mt-4">
             <IconAndInfo
               Icon={Clock}
               className="early-sale-button bg-warning px-6 py-2 rounded-lg ring-1"
@@ -167,7 +167,7 @@ const HeroSection = () => {
               </span>
             </IconAndInfo>
           </div>
-          <div className="flex mt-12 gap-6">
+          <div className="flex justify-center lg:justify-start mt-12 gap-6">
             <BottomOfHeroSectionContent
               Para1="2500+"
               Para2="Professionals Attended"
@@ -179,7 +179,7 @@ const HeroSection = () => {
           </div>
         </section>
 
-        <section className="relative">
+        <section className="relative mt-8 lg:mt-0 flex justify-center lg:block min-h-[300px] lg:min-h-auto">
           <div className="hero-image-1">
             <Image
               src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2940&auto=format&fit=crop/"

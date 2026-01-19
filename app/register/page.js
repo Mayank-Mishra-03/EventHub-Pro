@@ -5,7 +5,7 @@ import RegisterForm from "@/components/RegisterForm";
 
 const RegisterPage = () => {
   return (
-    <div className="bg-background min-h-screen pt-16 pb-20">
+    <div className="bg-linear-to-br from-blue-100 via-white to-orange-100 min-h-screen pt-16 pb-20">
       <Container>
         <SectionHeadingAndSubHeading
           heading="Register for EventHub Pro"

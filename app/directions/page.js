@@ -13,7 +13,7 @@ const DirectionsPage = () => {
     "https://maps.google.com/?q=Phoenix+Market+City+Pune+Viman+Nagar";
 
   return (
-    <div className="bg-background min-h-screen pt-10 pb-20">
+    <div className="bg-linear-to-br from-blue-100 via-white to-orange-100 min-h-screen pt-10 pb-20">
       <Container>
         <SectionHeadingAndSubHeading
           heading="Venue & Directions"
