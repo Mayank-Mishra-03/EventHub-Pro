@@ -120,41 +120,4 @@ const Transform = () => {
   );
 };
 
-// const Transform = () => {
-//   return (
-//     <section className="bg-linear-to-br from-primary to-secondary">
-//       <div className="py-20 mx-auto max-w-4xl">
-//         <h2>Ready to transform your Career?</h2>
-//         <p>
-//           Join 2,500+ professionals who are advancing their careers at EventHub
-//           Pro 2025
-//         </p>
-//         <div className="flex justify-around">
-//           {stats.map((stat, index) => (
-//             <div
-//               className="flex flex-col"
-//               key={index}
-//             >
-//               <span>{stat.number}</span>
-//               <span>{stat.title}</span>
-//             </div>
-//           ))}
-//         </div>
-//         <button>Secure Your Spot - Early Bird Pricing</button>
-//         <div className="flex justify-around">
-//           {paymentFeatures.map((feature, index) => (
-//             <div
-//               className="flex "
-//               key={index}
-//             >
-//               <span><feature.icon/></span>
-//               <span>{feature.title}</span>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
 export default Transform;
