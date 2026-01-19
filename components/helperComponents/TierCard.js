@@ -36,7 +36,7 @@ const TierCard = ({ tier }) => {
         </div>
       </div>
       <Button
-        href="/register"
+        href={`/register?tier=${tier.title}`}
         className="py-2 px-18"
       >
         <span className="font-semibold">Select {tier.title}</span>

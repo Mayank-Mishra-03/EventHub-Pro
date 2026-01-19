@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "@/components/helperComponents/Container";
 import SectionHeadingAndSubHeading from "@/components/helperComponents/SectionHeadingAndSubHeading";
 import {
@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "next-view-transitions";
+import { useSearchParams } from "next/navigation";
 
 const tierCardDetails = [
   {
@@ -47,10 +48,24 @@ const RegisterPage = () => {
     referralSource: "",
     acceptedTerms: false,
   });
-  const [selectedTier, setSelectedTier] = useState("Standard");
+  const [selectedTier, setSelectedTier] = useState("");
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [promoMessage, setPromoMessage] = useState(null);
+  const searchParams = useSearchParams();
+
+  const getSelectedTier = () => {
+    const tier = searchParams.get("tier");
+    if (!tier) {
+      setSelectedTier("Standard");
+    } else {
+      setSelectedTier(tier);
+    }
+  };
+
+  useEffect(() => {
+    getSelectedTier();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -120,14 +135,14 @@ const RegisterPage = () => {
                     label: "Full Name",
                     name: "name",
                     type: "text",
-                    placeholder: "John Doe",
+                    placeholder: "Mayank",
                     icon: User,
                   },
                   {
                     label: "Email Address",
                     name: "email",
                     type: "email",
-                    placeholder: "john@example.com",
+                    placeholder: "mayank@example.com",
                     icon: Mail,
                   },
                   {
@@ -141,7 +156,7 @@ const RegisterPage = () => {
                     label: "Age",
                     name: "age",
                     type: "number",
-                    placeholder: "25",
+                    placeholder: "20",
                     icon: Calendar,
                   },
                 ].map((field) => (
@@ -181,7 +196,7 @@ const RegisterPage = () => {
                     <input
                       type="text"
                       name="address"
-                      placeholder="123 Event St, City, Country"
+                      placeholder="Palladium Center, Pune"
                       className="w-full pl-10 pr-4 py-3 rounded-lg border border-neutral-200 focus:outline-hidden focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all duration-300 bg-surface hover:bg-white"
                       value={formData.address}
                       onChange={handleChange}

@@ -40,7 +40,7 @@ const PrivacyPage = () => {
   ];
 
   return (
-    <div className="bg-background min-h-screen pt-16 pb-20">
+    <div className="bg-background min-h-screen pt-10 pb-20">
       <Container>
         <SectionHeadingAndSubHeading
           heading="Privacy Policy"
