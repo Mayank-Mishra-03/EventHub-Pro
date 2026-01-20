@@ -37,7 +37,7 @@ const Overview = () => {
           subHeading="Transform your career trajectory with exclusive insights, strategic networking, and actionable knowledge from industry pioneers."
         />
 
-        <div className="grid grid-cols-3 gap-10 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-16">
           {OverviewData.map((item, index) => (
             <OverviewCard
               key={index}

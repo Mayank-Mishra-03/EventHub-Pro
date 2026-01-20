@@ -9,7 +9,7 @@ const SpeakerCard = ({ speaker }) => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      className="p-3 flex flex-col gap-3 w-80  rounded-lg z-100 bg-white shadw-md border border-neutral-200"
+      className="p-3 flex flex-col gap-3 w-full max-w-[90vw] md:w-80 rounded-lg z-50 bg-white shadow-xl border border-neutral-200"
     >
       <div>
         <Image
@@ -20,7 +20,9 @@ const SpeakerCard = ({ speaker }) => {
           className="h-50 w-100 object-cover rounded-t-lg"
         />
       </div>
-      <h2 className="font-bold text-lg text-primary tracking-wide">{speaker.name}</h2>
+      <h2 className="font-bold text-lg text-primary tracking-wide">
+        {speaker.name}
+      </h2>
       <h3 className="text-md text-accent tracking-tight font-semibold">
         {speaker.role}
       </h3>

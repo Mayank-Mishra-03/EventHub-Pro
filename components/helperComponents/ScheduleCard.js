@@ -99,27 +99,27 @@ const ScheduleCard = ({ event }) => {
         layout
         onClick={() => setisOpened(!isOpened)}
         layoutId={`container-${event.id}`}
-        className="bg-background shadow-md px-6 py-4 flex items-start justify-between overflow-hidden"
+        className="bg-background shadow-md px-6 py-4 flex flex-col md:flex-row items-start justify-between relative overflow-hidden"
       >
-        <div className="w-1/6 flex flex-col">
+        <div className="w-full md:w-1/6 flex flex-col mb-1 md:mb-0">
           <motion.span
             layoutId={`hour-${event.id}`}
-            className="font-bold text-2xl text-primary leading-none"
+            className="font-bold text-xl md:text-2xl text-primary leading-none"
           >
             {event.time.split(" ")[0]}
           </motion.span>
           <motion.span
             layoutId={`period-${event.id}`}
-            className="text-neutral-500"
+            className="text-sm md:text-base text-neutral-500"
           >
             {event.time.split(" ")[1]}
           </motion.span>
         </div>
 
-        <div className="w-2/3">
+        <div className="w-full md:w-2/3 pr-8 md:pr-0 transition-opacity duration-300">
           <motion.h3
             layout
-            className="font-semibold text-xl text-primary"
+            className="font-semibold text-md md:text-xl text-primary"
           >
             {event.title}
           </motion.h3>
@@ -143,9 +143,11 @@ const ScheduleCard = ({ event }) => {
                 }}
                 className="overflow-hidden"
               >
-                <p className="text-md text-neutral-500 mt-2">{event.content}</p>
+                <p className="text-sm md:text-md text-neutral-500 mt-2">
+                  {event.content}
+                </p>
 
-                <div className="flex mt-5 items-center">
+                <div className="flex mt-2 md:mt-5 items-center">
                   {event.speaker.map((speaker, idx) => (
                     <motion.div
                       key={idx}
@@ -158,13 +160,13 @@ const ScheduleCard = ({ event }) => {
                         alt={speaker.name}
                         width={30}
                         height={30}
-                        className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                        className="md:w-10 md:h-10 w-8 h-8 rounded-full border-2 border-white object-cover"
                       />
                     </motion.div>
                   ))}
                   <motion.h4
                     layout
-                    className="text-sm font-medium ml-2"
+                    className="text-xs md:text-sm font-medium ml-2"
                   >
                     {speakerName}
                   </motion.h4>
@@ -173,7 +175,7 @@ const ScheduleCard = ({ event }) => {
             )}
           </AnimatePresence>
         </div>
-        <div className="w-1/6 flex justify-end">
+        <div className="absolute top-4 right-4 md:static w-auto md:w-1/6 flex justify-end">
           <motion.div
             layout
             animate={{ rotate: isOpened ? -180 : 0 }}

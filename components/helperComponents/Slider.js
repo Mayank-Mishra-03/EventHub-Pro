@@ -26,11 +26,11 @@ const Slider = () => {
   };
   return (
     <>
-      <div className="mt-15 max-w-2xl mx-auto bg-background shadow-md border border-border flex items-center justify-between py-2.5 px-10 rounded-xl">
+      <div className="mt-15 w-full max-w-2xl mx-auto bg-background shadow-md border border-border flex flex-wrap items-center justify-center md:justify-between gap-y-2 py-2.5 px-2 md:px-10 rounded-xl">
         {tracks.map((track, index) => (
           <h3
             onClick={() => setClicked(index)}
-            className={`font-medium cursor-pointer transition-all duration-200 relative px-6 py-2 ${
+            className={`font-medium cursor-pointer transition-all duration-200 relative px-3 md:px-6 py-2 text-sm md:text-base ${
               clicked === index
                 ? "text-white"
                 : "text-neutral-500 hover:text-primary"
@@ -47,7 +47,7 @@ const Slider = () => {
           </h3>
         ))}
       </div>
-      <div className="mt-10">{currentTrack(clicked)}</div>
+      <div className="mt-5 md:mt-10">{currentTrack(clicked)}</div>
     </>
   );
 };

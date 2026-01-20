@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const SectionHeadingAndSubHeading = ({ heading, subHeading }) => {
   return (
     <div className="flex flex-col items-center justify-center max-w-3xl mx-auto">
-      <div className="flex">
+      <div className="flex flex-wrap justify-center">
         {heading.split(" ").map((word, index) => (
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -13,7 +13,7 @@ const SectionHeadingAndSubHeading = ({ heading, subHeading }) => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
             key={word + index}
-            className="text-3xl font-bold text-primary"
+            className="text-2xl md:text-3xl font-bold text-primary"
           >
             {word}&nbsp;
           </motion.h1>
@@ -35,7 +35,7 @@ const SectionHeadingAndSubHeading = ({ heading, subHeading }) => {
             transition={{ duration: 0.7, delay: index * 0.1 }}
             viewport={{ once: true }}
             key={word + index}
-            className="text-xl text-text-secondary"
+            className="text-md md:text-xl text-text-secondary text-center"
           >
             {word}&nbsp;
           </motion.h1>

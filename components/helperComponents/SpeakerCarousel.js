@@ -64,7 +64,7 @@ const speakerInfo = [
 const SpeakerCarousel = () => {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
   return (
-    <div className="max-w-5xl mx-auto mt-12 grid grid-cols-3 gap-20">
+    <div className="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-20">
       {speakerInfo.map((speaker, index) => (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,13 +73,23 @@ const SpeakerCarousel = () => {
           key={index}
           onMouseEnter={() => setSelectedSpeaker(index)}
           onMouseLeave={() => setSelectedSpeaker(null)}
+          onClick={() => setSelectedSpeaker(index)}
           className="relative"
         >
           <MiniSpeakerCard speaker={speaker} />
           <AnimatePresence>
             {selectedSpeaker === index && (
-              <div className="absolute -top-20 -left-20 z-100">
-                <SpeakerCard speaker={speaker} />
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 md:bg-transparent md:p-0 md:absolute md:inset-auto md:-top-20 md:-left-20">
+                <div
+                  className="absolute inset-0 md:hidden"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedSpeaker(null);
+                  }}
+                />
+                <div className="relative z-10">
+                  <SpeakerCard speaker={speaker} />
+                </div>
               </div>
             )}
           </AnimatePresence>

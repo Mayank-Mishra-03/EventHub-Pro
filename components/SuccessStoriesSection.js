@@ -157,7 +157,7 @@ const SuccessStoriesSection = () => {
             transition={{ duration: 1, delay: 0.5 }}
             className="h-0.5 bg-primary w-full"
           ></motion.div>
-          <span className="text-3xl font-bold text-primary">
+          <span className="text-2xl md:text-3xl font-bold text-primary bg-surface/50 px-4 py-1 rounded-full backdrop-blur-sm">
             Success Stories
           </span>
           <motion.div
@@ -167,7 +167,7 @@ const SuccessStoriesSection = () => {
             className="h-0.5 bg-primary w-full "
           ></motion.div>
         </div>
-        <div className="space-y-8">
+        <div className="space-y-2 md:space-y-8">
           {marqueeVariants.map((marquee, index) => (
             <Marquee
               key={index}
@@ -179,7 +179,7 @@ const SuccessStoriesSection = () => {
               {reviewMessages.map((review, index) => (
                 <div
                   key={index + review}
-                  className="mx-2"
+                  className="mx-0.5 md:mx-2"
                 >
                   <ReviewSectionCard person={review} />
                 </div>
