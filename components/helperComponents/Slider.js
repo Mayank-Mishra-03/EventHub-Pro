@@ -26,7 +26,7 @@ const Slider = () => {
   };
   return (
     <>
-      <div className="mt-15 w-full max-w-2xl mx-auto bg-background shadow-md border border-border flex flex-wrap items-center justify-center md:justify-between gap-y-2 py-2.5 px-2 md:px-10 rounded-xl">
+      <div className="mt-9 md:mt-15 w-full max-w-2xl mx-auto bg-background shadow-md border border-border flex flex-wrap items-center justify-center md:justify-between gap-y-2 py-2.5 px-2 md:px-10 rounded-xl">
         {tracks.map((track, index) => (
           <h3
             onClick={() => setClicked(index)}

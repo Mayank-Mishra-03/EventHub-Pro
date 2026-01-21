@@ -73,20 +73,20 @@ const Tickets = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeInOut" }}
-            className="bg-warning flex px-3 py-2 rounded-lg"
+            className="bg-warning flex px-3 py-2 rounded-lg items-center gap-1"
           >
             <Flame
               fill="gold"
               size={20}
               className="text-amber-600"
             />
-            <span className="text-white text-sm font-medium">
+            <span className="text-white text-xs md:text-sm font-medium">
               Only 127 early-bird tickets remaining
             </span>
           </motion.button>
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-3 gap-6 mt-16 relative">
+        <div className="max-w-5xl mx-auto flex flex-col items-center md:grid md:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-16 relative">
           {tierCardDetails.map((tier, index) => (
             <motion.div
               initial={{ y: -10, borderColor: "var(--color-accent)" }}
@@ -108,12 +108,12 @@ const Tickets = () => {
           </motion.span>
         </div>
 
-        <div className="flex items-center justify-center gap-6 mt-8">
-          <div className="flex items-center gap-1 text-sm text-neutral-500 font-medium">
+        <div className="flex items-center justify-center gap-6 mt-4 md:mt-6">
+          <div className="flex items-center gap-1 text-xs md:text-sm text-neutral-500 font-medium">
             <ShieldCheck size={16} />
             Secure Payment
           </div>
-          <div className="flex items-center gap-1 text-sm text-neutral-500 font-medium">
+          <div className="flex items-center gap-1 text-xs md:text-sm text-neutral-500 font-medium">
             <RefreshCcw size={14} />
             30-Refund Policy
           </div>

@@ -54,12 +54,12 @@ const IndividualQuestionCard = ({ query }) => {
     <motion.div
       layout
       onClick={() => setisOpened(!isOpened)}
-      className="bg-background shadow-md px-6 py-4 flex items-start justify-between overflow-hidden"
+      className="bg-background shadow-md px-6 py-3 md:py-4 flex items-start justify-between overflow-hidden"
     >
       <div className="w-5/6">
         <motion.h3
           layout
-          className="font-semibold text-xl text-primary"
+          className="font-semibold text-lg md:text-xl text-primary tracking-tight md:tracking-normal"
         >
           {query.question}
         </motion.h3>
@@ -83,7 +83,7 @@ const IndividualQuestionCard = ({ query }) => {
               }}
               className="overflow-hidden"
             >
-              <p className="text-md text-neutral-500 mt-2">{query.answer}</p>
+              <p className="text-base text-neutral-500 mt-2">{query.answer}</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -114,7 +114,7 @@ const QuestionSection = () => {
           heading="Frequently Asked Questions"
           subHeading="Everything you need to know about EventHub Pro 2026"
         />
-        <div className="space-y-4 mt-16 max-w-5xl mx-auto">
+        <div className="space-y-4 mt-12 md:mt-16 max-w-5xl mx-auto">
           {QuestionAndAnswer.map((query, index) => (
             <motion.div
               key={index}

@@ -76,12 +76,12 @@ const VenueInfoSection = () => {
           subHeading="Palladium Conference Center, Pune"
         />
 
-        <div className="max-w-6xl mx-auto grid grid-cols-2 gap-5 mt-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
-            className="space-y-8 shadow-lg p-10 rounded-xl border border-neutral-200"
+            className="space-y-4 md:space-y-8 shadow-lg p-5 md:p-10 rounded-xl border border-neutral-200"
           >
             <div className="space-y-4">
               <LocalHeading>Location Details</LocalHeading>
@@ -98,7 +98,7 @@ const VenueInfoSection = () => {
             </div>
             <div className="space-y-4">
               <LocalHeading>Amenities</LocalHeading>
-              <div className="grid grid-cols-2 gap-y-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2">
                 {AmenitiesInfo.map((Amenity, index) => (
                   <div
                     key={index}
@@ -111,7 +111,7 @@ const VenueInfoSection = () => {
                       className="text-green-600"
                     />
                     </div>
-                    <span className="text-neutral-500">{Amenity}</span>
+                    <span className="text-neutral-500 text-sm md:text-base">{Amenity}</span>
                   </div>
                 ))}
               </div>
@@ -161,7 +161,7 @@ const VenueInfoSection = () => {
               <Map
                 size={22}
               />
-              <span className="text-xl font-semibold">Get Directions</span>
+              <span className="text-base md:text-xl font-semibold">Get Directions</span>
               <ExternalLink
                 size={18}
               />

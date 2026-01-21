@@ -151,7 +151,7 @@ const HeroSection = () => {
           <div className="text-center lg:text-left">
             <Button
               href="/register"
-              className="early-sale-button mt-8 px-12 py-3 text-xl font-medium ring-1"
+              className="early-sale-button mt-8 px-12 py-3 text-lg md:text-xl font-medium ring-1"
             >
               Secure Early Bird Ticket - Save 40%
             </Button>

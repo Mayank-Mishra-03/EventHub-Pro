@@ -25,14 +25,14 @@ const TrustedBy = () => {
         {companiesLogos.map((logo, index) => (
           <div
             key={index}
-            className="mx-8"
+            className="mx-4 md:mx-8"
           >
             <Image
               src={logo}
               alt="Company Logo"
               width={100}
               height={100}
-              className="h-16 w-16 object-cover rounded-xl filter grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              className="h-12 w-12 md:h-16 md:w-16 object-cover rounded-xl filter grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
             />
           </div>
         ))}

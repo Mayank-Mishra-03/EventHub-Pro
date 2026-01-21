@@ -6,7 +6,7 @@ const TierCard = ({ tier }) => {
   return (
     <div
       tabIndex={0}
-      className="shadow-lg border-2 border-neutral-200 flex flex-col items-center justify-between gap-3.5 rounded-lg py-6 h-100 focus:ring focus:ring-accent"
+      className="shadow-lg border-2 border-neutral-200 flex flex-col items-center justify-between gap-3.5 rounded-lg py-6 h-90 md:h-100 w-78 md:w-full focus:ring focus:ring-accent"
     >
       <div>
         <h1 className="text-primary text-xl font-bold">{tier.title}</h1>
@@ -19,7 +19,7 @@ const TierCard = ({ tier }) => {
         <h3 className="text-green-500 text-sm font-semibold">
           Save ${tier.savings}
         </h3>
-        <div className="space-y-2">
+        <div className="md:space-y-2 space-y-1 mt-2">
           {tier.benefits.map((benefit, index) => (
             <div
               key={index}
