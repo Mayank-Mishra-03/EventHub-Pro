@@ -51,6 +51,7 @@ const Transform = () => {
                 ease: "easeInOut",
                 delay: 0.3 + index * 0.1,
               }}
+              viewport={{once: true}}
               className="inline-block"
               key={index + word}
             >
@@ -67,6 +68,7 @@ const Transform = () => {
                 duration: 1,
                 delay: 0.3 + index * 0.1,
               }}
+              viewport={{once: true}}
               className="inline-block"
               key={index + word}
             >
@@ -82,6 +84,7 @@ const Transform = () => {
             ease: "linear",
             delay: 1,
           }}
+          viewport={{once: true}}
           className="flex justify-around gap-10 bg-[#3d61b3]/80 py-4 md:py-6 md:px-12 px-6 mt-4 md:mt-2 rounded-lg text-white w-full"
         >
           {stats.map((stat, index) => (

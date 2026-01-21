@@ -25,12 +25,10 @@ const logo = (
 const Footer = () => {
   return (
     <footer className="bg-slate-800 pt-16 pb-8 overflow-hidden relative border-t border-blue-800/30">
-      {/* Decorative Top Highlight */}
       <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-accent to-transparent opacity-70"></div>
 
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
-          {/* Brand Column (Span 4) */}
           <div className="lg:col-span-4 space-y-6">
             <Link
               href="/"
@@ -70,7 +68,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links (Span 3) */}
           <div className="lg:col-span-3 lg:pl-8">
             <h4 className="text-lg font-semibold text-white mb-6 relative inline-block">
               Quick Links
@@ -85,7 +82,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info (Span 2) */}
           <div className="lg:col-span-3 mx-auto">
             <h4 className="text-lg font-semibold text-white mb-6 relative inline-block">
               Contact Us
@@ -120,7 +116,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter (Span 3) */}
           <div className="lg:col-span-2">
             <h4 className="text-lg font-semibold text-white mb-6">
               Stay Updated
@@ -147,10 +142,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800 to-transparent my-8 opacity-50"></div>
 
-        {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
           <p>
             &copy; {new Date().getFullYear()} EventHub Pro. All rights reserved.
@@ -176,13 +169,13 @@ const Footer = () => {
 };
 
 const SocialIcon = ({ icon, href, label }) => (
-  <a
+  <Link
     href={href}
     aria-label={label}
     className="w-10 h-10 rounded-full bg-blue-950 border border-blue-900 flex items-center justify-center text-slate-300 hover:bg-accent hover:border-accent hover:text-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/20"
   >
     {icon}
-  </a>
+  </Link>
 );
 
 const FooterLink = ({ href, children }) => (

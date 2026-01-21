@@ -18,7 +18,7 @@ const Slider = () => {
       case 2:
         return <MultipleScheduleCards />;
       case 3:
-        return;
+        return <SpeakerCarousel />;
 
       default:
         break;

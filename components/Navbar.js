@@ -98,7 +98,7 @@ const Navbar = () => {
           ease: "linear",
         }}
         ref={scope}
-        className="bg-surface hidden sm:block w-screen fixed top-0 inset-x-0 py-3 shadow-sm mx-auto z-50"
+        className="bg-surface hidden md:block w-screen fixed top-0 inset-x-0 py-3 shadow-sm mx-auto z-50"
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link
